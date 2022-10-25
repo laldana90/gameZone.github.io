@@ -6,6 +6,8 @@ let seguirComprando = true
 let totalCompra = 0
 let decision
 let totalCompraFinal = 0
+let valorDescuento
+let valorFinal
 
 
 
@@ -32,9 +34,26 @@ while (seguirComprando === true) {
 }
 
 
+function descuento() {
+    if (totalCompra <= 1000) {
+        descuento = 15
+    } else if (totalCompra > 1000 && totalCompra <= 3000) {
+        descuento = 25 
+    } else {
+        descuento = 35
+    }
 
-totalCompraFinal = parseInt(alert(`${usuario}, el total de tu compra es de ${totalCompraFinal + totalCompra}. Gracias por preferirnos!`))
+    valorDescuento = totalCompra * (descuento / 100)
+    valorFinal = totalCompra - valorDescuento
+    return valorFinal
 
+    
+   
+}
+
+descuento()
+
+parseInt(alert(`${usuario}, el total de tu compra es de ${valorFinal}. Gracias por preferirnos!`))
 
 
 
